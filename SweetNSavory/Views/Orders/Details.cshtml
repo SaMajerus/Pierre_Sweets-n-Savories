@@ -1,28 +1,29 @@
-@{
+@* @{
   Layout = "_Layout";
 }
 
-@model SweetNSavory.Models.Ingredient;
+@model SweetNSavory.Models.Order;
 
-<h2>Ingredient Details</h2>
+<h2>Order Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
 @if(@Model.JoinRecIng.Count == 0)
 {
-  <p>This ingredient is not used in any recipes</p>
+  <p>There are currently no Orders that include this Treat</p>
 }
 else
 {
-  <h4>Recipes the ingredient is in:</h4>
+  <h4>Current Orders that include this Treat:</h4>
   <ul>
   @foreach(var join in Model.JoinRecIng)
   {
-    <li>@join.Recipe.Description</li>
+    <li>@join.Treats.Description</li>
   }
   </ul>
 }
 
-<p>@Html.ActionLink("Back to Ingredients", "Index")</p>
-<p>@Html.ActionLink("Edit Ingredient", "Edit", new { id = Model.IngredientId })</p>
-<p>@Html.ActionLink("Delete Ingredient", "Delete", new { id = Model.IngredientId })</p>
+<p>@Html.ActionLink("Back to Orders", "Index")</p>
+<p>@Html.ActionLink("Edit Order", "Edit", new { id = Model.OrderId })</p>
+<p>@Html.ActionLink("Delete Order", "Delete", new { id = Model.OrderId })</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p> *@

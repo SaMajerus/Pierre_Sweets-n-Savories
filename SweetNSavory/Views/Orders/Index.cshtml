@@ -1,19 +1,19 @@
-@* copied from Categories *@
+@* *copied from Categories*
 @{
   Layout = "_Layout";
 }
 
 @using SweetNSavory.Models;
-@model List<SweetNSavory.Models.Ingredient>;
+@model List<SweetNSavory.Models.Order>;
 
-<h1>Ingredients</h1>
+<h1>Orders</h1>
 
 <ul>
-  @foreach(Ingredient ingredient in Model)
+  @foreach(Order order in Model)
   {
-    <li>@Html.ActionLink($"{ingredient.Name}", "Details", new { id = ingredient.IngredientId })</li>
+    <li>@Html.ActionLink($"{order.Name}", "Details", new { id = order.OrderId })</li>
   }
 </ul>
 
-<p>@Html.ActionLink("Add new ingredient", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Add new order", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p> *@

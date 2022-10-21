@@ -1,14 +1,16 @@
-@{
+@* @{
   Layout = "_Layout";
 }
 
-@model SweetNSavory.Models.Ingredient
+@model SweetNSavory.Models.Order
 
-<h4>Add a new Ingredient</h4>
+<h4>Add a new Order</h4>
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
-  <input type="submit" value="Add new ingredient" />
+  <input type="submit" value="Add new order" />
 }
-<p>@Html.ActionLink("Show all categories", "Index")</p>
+
+<p>@Html.ActionLink("Show all flavors", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>  *@

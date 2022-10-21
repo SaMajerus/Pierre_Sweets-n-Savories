@@ -3,16 +3,16 @@
 }
 
 @using SweetNSavory.Models;
-@model List<SweetNSavory.Models.Category>;
+@model List<SweetNSavory.Models.Flavor>;
 
-<h1>Categories</h1>
+<h1>Flavors</h1>
 
 <ul>
-  @foreach(Category category in Model)
+  @foreach(Flavor flavor in Model)
   {
-    <li>@Html.ActionLink($"{category.Name}", "Details", new { id = category.CategoryId })</li>
+    <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</li>
   }
 </ul>
 
-<p>@Html.ActionLink("Add new category", "Create")</p>
+<p>@Html.ActionLink("Add new flavor", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
