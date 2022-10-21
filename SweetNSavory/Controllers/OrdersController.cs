@@ -37,8 +37,8 @@ namespace SweetNSavory.Controllers
     public ActionResult Details(int id)
     {
       var thisOrder = _db.Orders
-        .Include(order => order.JoinRecIng)
-        .ThenInclude(join => join.Recipe)
+        .Include(order => order.JoinTreOrd)
+        .ThenInclude(join => join.Treat)
         .FirstOrDefault(order => order.OrderId == id);
       return View(thisOrder);
     }
