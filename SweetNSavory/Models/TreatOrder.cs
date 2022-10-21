@@ -1,11 +1,11 @@
-// namespace SweetNSavory.Models
-// {
-//   public class TreatIngredient
-//   {
-//     public int TreatIngredientId { get; set; }
-//     public int IngredientId { get; set; }
-//     public int TreatId { get; set; }
-//     public virtual Ingredient Ingredient { get; set; }
-//     public virtual Treat Treat { get; set; }
-//   }
-// }
+namespace SweetNSavory.Models
+{
+  public class TreatOrder
+  {
+    public int TreatOrderId { get; set; }
+    public int OrderId { get; set; }
+    public int TreatId { get; set; }
+    public virtual Order Order { get; set; }
+    public virtual Treat Treat { get; set; }
+  }
+}

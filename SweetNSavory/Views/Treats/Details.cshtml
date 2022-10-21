@@ -16,7 +16,7 @@
 }
 else
 {
-  <h4>Flavors used by the treat:</h4>
+  <h4>This Treat's Flavors:</h4>
   <ul>
 
   @* Ln 23-31:  Need to reference Orders in a way that also allows us to reference Categories, and do so in the same function. (In order to display associated Categories and Orders also.) *@
@@ -32,14 +32,13 @@ else
   </ul>
 }
 
-@* 
 @if(@Model.JoinTreOrd.Count == 0)
 {
-  <p>This treat does not have any orders</p>
+  <p>This treat has no orders</p>
 }
 else
 {
-  <h4>Orders in the treat:</h4>
+  <h4>Orders for this Treat:</h4>
   <ul>
 
   @foreach(var join in Model.JoinTreOrd)
@@ -52,11 +51,12 @@ else
     }
   }
   </ul>
-} *@
+}
 
-
-<p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
 <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
 <p>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Add an Order", "AddOrder", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Add an Order", "AddOrder", new { id = Model.TreatId })</p><br>
+
+<p>@Html.ActionLink("Back to list", "Index")</p> 
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p> 

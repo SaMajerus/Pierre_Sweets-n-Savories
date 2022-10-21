@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetNSavory.Models.Treat
+
+<h2>Add an Order</h2>
+
+<h4>Add an Order for this Treat: @Html.DisplayFor(model => model.Description)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.Label("Select Order")
+  @Html.DropDownList("OrderId")
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

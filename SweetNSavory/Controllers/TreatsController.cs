@@ -24,11 +24,11 @@ namespace SweetNSavory.Controllers
       _db = db;
     }
 
-      public ActionResult Index()
-      {
-        //return View(_db.Treats.ToList().OrderBy(model => model.Rating).ToList());
-        return View(_db.Treats.ToList()); 
-      }
+    public ActionResult Index()
+    {
+      //return View(_db.Treats.ToList().OrderBy(model => model.Rating).ToList());
+      return View(_db.Treats.ToList()); 
+    }
 
 /*
     public async Task<ActionResult> Index()
@@ -67,8 +67,8 @@ namespace SweetNSavory.Controllers
       var thisTreat = _db.Treats
         .Include(treat => treat.JoinTreFlav)
         .ThenInclude(join => join.Flavor)
-        //.Include(treat => treat.JoinTreIng)
-        //.ThenInclude(join => join.Order)
+        .Include(treat => treat.JoinTreOrd)
+        .ThenInclude(join => join.Order)
         .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
@@ -119,7 +119,6 @@ namespace SweetNSavory.Controllers
       return RedirectToAction("Index");
     }
 
-/*
     [Authorize] 
     public ActionResult AddOrder(int id)
     {
@@ -144,7 +143,7 @@ namespace SweetNSavory.Controllers
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
-    } */
+    } 
 
     [Authorize] 
     public ActionResult Delete(int id)
@@ -172,7 +171,6 @@ namespace SweetNSavory.Controllers
       return RedirectToAction("Index");
     }
 
-/*
     [Authorize] 
     [HttpPost]
     public ActionResult DeleteOrder(int joinId)
@@ -181,6 +179,6 @@ namespace SweetNSavory.Controllers
       _db.TreatOrder.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
-    } */
+    } 
   }
 }
