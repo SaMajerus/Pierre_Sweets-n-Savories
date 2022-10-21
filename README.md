@@ -30,8 +30,8 @@
 
 ## Description
 
-The program starts by printing out a greeting to the User on the Splash page. From here, the User can navigate to one of 3 places: a page that lists the Machines, one that lists the Engineers, or one that lists the Licenses. (The blue text strings are indeed hyperlinks, but they function more like buttons in this context.) 
-Note that this application is the Minimum-Viable-Product iteration, meaning that the features available here are of the Baseline variety. <br><br>
+The User is greeted with a Splash page. From here, the User can navigate to one of 4 places: a list of Treats, a list of Flavors, an Order form, or a 'Create Account or Log-In' page. Anonymous visitors have read permissions for the whole site. Only users with Accounts created have Create/Read/Update/Delete (CRUD) permissions.   
+In the works:   an Admin account is the only one with full CRUD permissions.   Thus, normal user account for customers only has CRUD permissions for Orders they submit whilst Signed In.  Anonymous visitors have Read permissions for the site, as before. <br><br>
 
 
 <!-- Resources I found to be helpful whilst developing this application-- 
@@ -61,14 +61,20 @@ Note that this application is the Minimum-Viable-Product iteration, meaning that
 * Setting up the 'appsettings.json' file 
 Whilst viewing the 'SweetNSavory' directory  (~/SweetNSavory), enter the command 'code appsettings.json' into the terminal. Then, in the empty file that opens (and has the name 'appsettings.json'), copy/paste the following into it.  
 
+<!-- {
+  "ConnectionStrings": {
+      "DefaultConnection": "Server=localhost;Port=3306;database=sam_majerus;uid=YOUR-SQL-USERNAME;pwd=YOUR-SQL-PASSWORD;"
+  }
+} -->
+
 ```json
 {
   "ConnectionStrings": {
-      //"DefaultConnection": "Server=localhost;Port=3306;database=sam_majerus;uid=YOUR-SQL-USERNAME;pwd=YOUR-SQL-PASSWORD;"
-      "DefaultConnection": "Server=localhost;Port=3306;database=pierres_bky_sweets_n_savories;uid=YOUR-SQL-USERNAME;pwd=YOUR-SQL-PASSWORD;"
+    "DefaultConnection": "Server=localhost;Port=3306;database=pierres_bky_sweets_n_savories;uid=YOUR-SQL-USERNAME;pwd=YOUR-SQL-PASSWORD;"
   }
 }
 ```
+
 Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your MySQL username and password, respectively, and then save the file by pressing 'Ctrl-S'. 
 <br>
 
