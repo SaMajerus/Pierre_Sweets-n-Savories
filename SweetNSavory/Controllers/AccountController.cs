@@ -1,18 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using RecipeBox.Models;
+using SweetNSavory.Models;
 using System.Threading.Tasks;
-using RecipeBox.ViewModels;
+using SweetNSavory.ViewModels;
 
-namespace RecipeBox.Controllers
+namespace SweetNSavory.Controllers
 {
   public class AccountController : Controller
   {
-    private readonly RecipeBoxContext _db;
+    private readonly SweetNSavoryContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RecipeBoxContext db)
+    public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, SweetNSavoryContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using System; //this is present in recipe but not category
+using System;  //This is present in Recipe.cs, but not Category.cs
 
-namespace RecipeBox.Models
+namespace SweetNSavory.Models
 {
   public class Ingredient
   {

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace RecipeBox.Models
+namespace SweetNSavory.Models
 {
-  public class RecipeBoxContext : IdentityDbContext<ApplicationUser>
+  public class SweetNSavoryContext : IdentityDbContext<ApplicationUser>
   {
     public DbSet<Category> Categories { get; set; }
     public DbSet<Recipe> Recipes { get; set; }
@@ -11,7 +11,7 @@ namespace RecipeBox.Models
     public DbSet<CategoryRecipe> CategoryRecipe { get; set; }
     public DbSet<RecipeIngredient> RecipeIngredient { get; set; }
 
-    public RecipeBoxContext(DbContextOptions options) : base(options) { }
+    public SweetNSavoryContext(DbContextOptions options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

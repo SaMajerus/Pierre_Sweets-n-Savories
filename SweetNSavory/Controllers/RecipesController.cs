@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using RecipeBox.Models;
+using SweetNSavory.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -10,15 +10,15 @@ using Microsoft.AspNetCore.Identity;  //"[Allows] our controller [to] interact w
 using System.Threading.Tasks;  //"[Is] necessary to call async methods" (Lsn 9). 
 using System.Security.Claims;  /* "[I]mportant for using claim based authorization. A claim is a form of user identification. It states who a user is, not what the user can actually do. While the user identification itself doesn't authorize a user to do anything, it is necessary to first identify a user (through a claim) in order to determine whether they should be authorized" (Lsn 9). */
 
-namespace RecipeBox.Controllers
+namespace SweetNSavory.Controllers
 {
   //[Authorize]  //This attribute "allows access to the 'RecipesController' only if a user is logged in" (Lsn 9).  
   public class RecipesController : Controller
   {
-    private readonly RecipeBoxContext _db;
+    private readonly SweetNSavoryContext _db;
     private readonly UserManager<ApplicationUser> _userManager; 
 
-    public RecipesController(UserManager<ApplicationUser> userManager, RecipeBoxContext db)
+    public RecipesController(UserManager<ApplicationUser> userManager, SweetNSavoryContext db)
     {
       _userManager = userManager;
       _db = db;

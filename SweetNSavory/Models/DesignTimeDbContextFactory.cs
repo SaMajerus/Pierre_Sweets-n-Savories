@@ -3,23 +3,23 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace RecipeBox.Models
+namespace SweetNSavory.Models
 {
-  public class RecipeBoxContextFactory : IDesignTimeDbContextFactory<RecipeBoxContext>
+  public class SweetNSavoryContextFactory : IDesignTimeDbContextFactory<SweetNSavoryContext>
   {
 
-    RecipeBoxContext IDesignTimeDbContextFactory<RecipeBoxContext>.CreateDbContext(string[] args)
+    SweetNSavoryContext IDesignTimeDbContextFactory<SweetNSavoryContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
           .SetBasePath(Directory.GetCurrentDirectory())
           .AddJsonFile("appsettings.json")
           .Build();
 
-      var builder = new DbContextOptionsBuilder<RecipeBoxContext>();
+      var builder = new DbContextOptionsBuilder<SweetNSavoryContext>();
 
       builder.UseMySql(configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(configuration["ConnectionStrings:DefaultConnection"]));
 
-      return new RecipeBoxContext(builder.Options);
+      return new SweetNSavoryContext(builder.Options);
     }
   }
 }

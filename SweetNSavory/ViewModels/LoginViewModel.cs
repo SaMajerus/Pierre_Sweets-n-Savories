@@ -1,4 +1,4 @@
-namespace RecipeBox.ViewModels
+namespace SweetNSavory.ViewModels
 {
     public class LoginViewModel
     {

@@ -4,11 +4,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using RecipeBox.Models;
-//New code:  [Ln 9]
+using SweetNSavory.Models;
 using Microsoft.AspNetCore.Identity;  
 
-namespace RecipeBox
+namespace SweetNSavory
 {
   public class Startup
   {
@@ -27,15 +26,15 @@ namespace RecipeBox
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<RecipeBoxContext>(options => options
+        .AddDbContext<SweetNSavoryContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
 
       
       services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<RecipeBoxContext>()
-                .AddDefaultTokenProviders();
+        .AddEntityFrameworkStores<SweetNSavoryContext>()
+        .AddDefaultTokenProviders();
       
-      //Overrides Identity's default Password settings. (Lsn 8)
+      //Overrides Identity's default Password settings. 
       services.Configure<IdentityOptions>(options =>
       {
         options.Password.RequireDigit = false;
@@ -51,11 +50,11 @@ namespace RecipeBox
     {
       app.UseDeveloperExceptionPage();
 
-      app.UseAuthentication(); //new code  [this line]
+      app.UseAuthentication(); 
 
       app.UseRouting();
       
-      app.UseAuthorization(); //new code  [this line]
+      app.UseAuthorization(); 
       
       app.UseEndpoints(routes =>
       {

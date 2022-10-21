@@ -1,4 +1,4 @@
-namespace RecipeBox.Models
+namespace SweetNSavory.Models
 {
   public class RecipeIngredient
   {

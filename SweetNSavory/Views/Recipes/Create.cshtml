@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model RecipeBox.Models.Recipe
+@model SweetNSavory.Models.Recipe
 
 <h4>Add a new recipe</h4>
 @using (Html.BeginForm())
@@ -14,7 +14,6 @@
   @Html.DropDownList("CategoryId")
 
   <p>Rate on a scale of 1-10:</p>
-  //@Html.LabelFor(model => model.Rating)
   @Html.TextBoxFor(model => model.Rating) 
 
   @Html.LabelFor(model => model.Steps)

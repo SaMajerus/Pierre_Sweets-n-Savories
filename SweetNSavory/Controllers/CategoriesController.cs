@@ -1,16 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
-using RecipeBox.Models;
+using SweetNSavory.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace RecipeBox.Controllers
+namespace SweetNSavory.Controllers
 {
   public class CategoriesController : Controller
   {
-    private readonly RecipeBoxContext _db;
+    private readonly SweetNSavoryContext _db;
 
-    public CategoriesController(RecipeBoxContext db)
+    public CategoriesController(SweetNSavoryContext db)
     {
       _db = db;
     }

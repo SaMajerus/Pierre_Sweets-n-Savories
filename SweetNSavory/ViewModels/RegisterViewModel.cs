@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations; 
 
-namespace RecipeBox.ViewModels
+namespace SweetNSavory.ViewModels
 {
   public class RegisterViewModel 
   {

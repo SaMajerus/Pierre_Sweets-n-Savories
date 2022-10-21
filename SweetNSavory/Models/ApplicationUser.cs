@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Identity; 
 
-namespace RecipeBox.Models 
+namespace SweetNSavory.Models 
 {
   public class ApplicationUser : IdentityUser 
   {
-    
   }
 
 }
