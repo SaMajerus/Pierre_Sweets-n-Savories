@@ -68,7 +68,7 @@ namespace SweetNSavory.Controllers
         .Include(treat => treat.JoinTreFlav)
         .ThenInclude(join => join.Flavor)
         //.Include(treat => treat.JoinTreIng)
-        //.ThenInclude(join => join.Ingredient)
+        //.ThenInclude(join => join.Order)
         .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
@@ -119,31 +119,32 @@ namespace SweetNSavory.Controllers
       return RedirectToAction("Index");
     }
 
+/*
     [Authorize] 
-    public ActionResult AddIngredient(int id)
+    public ActionResult AddOrder(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-      ViewBag.IngredientId = new SelectList(_db.Ingredients, "IngredientId", "Name");
+      ViewBag.OrderId = new SelectList(_db.Orders, "OrderId", "Name");
       return View(thisTreat);
     }
 
     [HttpPost]
-    public ActionResult AddIngredient(Treat treat, int IngredientId)
+    public ActionResult AddOrder(Treat treat, int OrderId)
     {
-      foreach(TreatIngredient entry in _db.TreatIngredient)
-        {  //Blocks the Ingredient from being added if this given element matches what the user is trying to add. (Prevents duplicate entries of an Ingredient.)
-          if((IngredientId == entry.IngredientId) && (treat.TreatId == entry.TreatId))
+      foreach(TreatOrder entry in _db.TreatOrder)
+        {  //Blocks the Order from being added if this given element matches what the user is trying to add. (Prevents duplicate entries of an Order.)
+          if((OrderId == entry.OrderId) && (treat.TreatId == entry.TreatId))
           {
             return RedirectToAction("Index");
           }
         }
-      if (IngredientId != 0)
+      if (OrderId != 0)
       {
-        _db.TreatIngredient.Add(new TreatIngredient() { IngredientId = IngredientId, TreatId = treat.TreatId });
+        _db.TreatOrder.Add(new TreatOrder() { OrderId = OrderId, TreatId = treat.TreatId });
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
-    }
+    } */
 
     [Authorize] 
     public ActionResult Delete(int id)
@@ -171,14 +172,15 @@ namespace SweetNSavory.Controllers
       return RedirectToAction("Index");
     }
 
+/*
     [Authorize] 
     [HttpPost]
-    public ActionResult DeleteIngredient(int joinId)
+    public ActionResult DeleteOrder(int joinId)
     {
-      var joinEntry = _db.TreatIngredient.FirstOrDefault(entry => entry.TreatIngredientId == joinId);
-      _db.TreatIngredient.Remove(joinEntry);
+      var joinEntry = _db.TreatOrder.FirstOrDefault(entry => entry.TreatOrderId == joinId);
+      _db.TreatOrder.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
-    }
+    } */
   }
 }

@@ -3,24 +3,25 @@
 }
 
 @using SweetNSavory.Models;
-@model IEnumerable<SweetNSavory.Models.Recipe>
+@model IEnumerable<SweetNSavory.Models.Treat>
 
-<h1>Recipes</h1>
-@* <h1>Recipes for @User.Identity.Name</h1> *@
+<h1>Treats</h1>
+@* <h1>Treats for @User.Identity.Name</h1> *@
 
 @if (Model.Any())
 {
   <ul>
-    @foreach (Recipe recipe in Model)
+    @foreach (Treat treat in Model)
     {
-      <li>@Html.ActionLink($"{recipe.Description}", "Details", new { id = recipe.RecipeId }) Rating: $"{recipe.Rating}"</li>
+      @* <li>@Html.ActionLink($"{treat.Description}", "Details", new { id = treat.TreatId }) Rating: $"{treat.Rating}"</li> *@
+      <li>@Html.ActionLink($"{treat.Description}", "Details", new { id = treat.TreatId })</li>
     }
   </ul>
 } 
 else
 {
-  <h3>No recipes have been added yet!</h3>
+  <h3>No treats have been added yet!</h3>
 }
 
-<p>@Html.ActionLink("Add new recipe", "Create")</p>
+<p>@Html.ActionLink("Add new treat", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

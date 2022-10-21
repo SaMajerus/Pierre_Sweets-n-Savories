@@ -2,61 +2,61 @@
   Layout = "_Layout";
 }
 
-@model SweetNSavory.Models.Recipe
+@model SweetNSavory.Models.Treat
 
-<h2>Recipe Details</h2>
+<h2>Treat Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
-<h3>Steps: @Html.DisplayFor(model => model.Steps)</h3>
-<h3>Rating: @Html.DisplayFor(model => model.Rating)</h3>
+@* <h3>Steps: @Html.DisplayFor(model => model.Steps)</h3>
+<h3>Rating: @Html.DisplayFor(model => model.Rating)</h3> *@
 
-
-@if(@Model.JoinCatRec.Count == 0)
+@if(@Model.JoinTreFlav.Count == 0)
 {
-  <p>This recipe does not belong to any categories</p>
+  <p>This Treat does not use any flavors</p>
 }
 else
 {
-  <h4>Categories the recipe belongs to:</h4>
+  <h4>Flavors used by the treat:</h4>
   <ul>
 
-  @* Ln 23-31:  Need to reference Ingredients in a way that also allows us to reference Categories, and do so in the same function. (In order to display associated Categories and Ingredients also.) *@
-  @foreach(var join in Model.JoinCatRec)
+  @* Ln 23-31:  Need to reference Orders in a way that also allows us to reference Categories, and do so in the same function. (In order to display associated Categories and Orders also.) *@
+  @foreach(var join in Model.JoinTreFlav)
   {
-    <li>@join.Category.Name</li>
-    @using (Html.BeginForm("DeleteCategory", "Recipes"))
+    <li>@join.Flavor.Name</li>
+    @using (Html.BeginForm("DeleteFlavor", "Treats"))
     {
-      @Html.Hidden("joinId", @join.CategoryRecipeId)
+      @Html.Hidden("joinId", @join.TreatFlavorId)
       <input type="submit" value="Delete"/>
     }
   }
   </ul>
 }
 
-@if(@Model.JoinRecIng.Count == 0)
+@* 
+@if(@Model.JoinTreOrd.Count == 0)
 {
-  <p>This recipe does not have any ingredients</p>
+  <p>This treat does not have any orders</p>
 }
 else
 {
-  <h4>Ingredients in the recipe:</h4>
+  <h4>Orders in the treat:</h4>
   <ul>
 
-  @foreach(var join in Model.JoinRecIng)
+  @foreach(var join in Model.JoinTreOrd)
   {
-    <li>@join.Ingredient.Name</li>
-    @using (Html.BeginForm("DeleteIngredient", "Recipes"))
+    <li>@join.Order.Name</li>
+    @using (Html.BeginForm("DeleteOrder", "Treats"))
     {
-      @Html.Hidden("joinId", @join.RecipeIngredientId)
+      @Html.Hidden("joinId", @join.TreatOrderId)
       <input type="submit" value="Delete"/>
     }
   }
   </ul>
-}
+} *@
 
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Recipe", "Edit", new { id = Model.RecipeId })</p>
-<p>@Html.ActionLink("Delete Recipe", "Delete", new { id = Model.RecipeId })</p>
-<p>@Html.ActionLink("Add a Category", "AddCategory", new { id = Model.RecipeId })</p>
-<p>@Html.ActionLink("Add an Ingredient", "AddIngredient", new { id = Model.RecipeId })</p>
+<p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Add an Order", "AddOrder", new { id = Model.TreatId })</p>

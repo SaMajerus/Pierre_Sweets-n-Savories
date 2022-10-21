@@ -37,7 +37,7 @@ namespace SweetNSavory.Controllers
     public ActionResult Details(int id)
     {
       var thisFlavor = _db.Flavors
-        .Include(flavor => flavor.JoinCatRec)
+        .Include(flavor => flavor.JoinTreFlav)
         .ThenInclude(join => join.Treat)
         .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
