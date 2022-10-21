@@ -10,7 +10,7 @@ namespace SweetNSavory.ViewModels
     public string Email { get; set; } 
 
     [Required]
-    [DataType(DataType.Password)]  //"Identity's default setting for a Password is at least 6 characters, a Capital letter, a digit, and a special character" ([Overall-] Wk 13, Lsn 6). 
+    [DataType(DataType.Password)]  //"Identity's default setting for a Password is at least 6 characters, a Capital letter, a digit, and a special character". 
     [Display(Name = "Password")] 
     public string Password { get; set; } 
 
