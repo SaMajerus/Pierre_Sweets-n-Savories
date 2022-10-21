@@ -10,11 +10,14 @@
 <hr />
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
+  @* @Html.LabelFor(m => m.Email) *@
+  <p>Username or Email </p> 
+  @Html.TextBoxFor(m => m.Email)
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
+  @Html.LabelFor(m => m.Password)
+  @Html.PasswordFor(m => m.Password)
 
-    <input type="submit" value="Log in" class="btn btn-default" />
+  <input type="submit" value="Log in" class="btn btn-default" />
 }
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
