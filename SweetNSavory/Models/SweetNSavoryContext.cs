@@ -5,11 +5,11 @@ namespace SweetNSavory.Models
 {
   public class SweetNSavoryContext : IdentityDbContext<ApplicationUser>
   {
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Recipe> Recipes { get; set; }
-    public DbSet<Ingredient> Ingredients { get; set; }
-    public DbSet<CategoryRecipe> CategoryRecipe { get; set; }
-    public DbSet<RecipeIngredient> RecipeIngredient { get; set; }
+    public DbSet<Flavor> Flavors { get; set; }
+    public DbSet<Treat> Treats { get; set; }
+    //public DbSet<Order> Orders { get; set; }
+    public DbSet<TreatFlavor> TreatFlavor { get; set; }
+    //public DbSet<TreatOrder> TreatOrder { get; set; }
 
     public SweetNSavoryContext(DbContextOptions options) : base(options) { }
 
